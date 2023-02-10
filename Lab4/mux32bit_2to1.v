@@ -1,4 +1,24 @@
+module Mux2To1(out, select, in1, in2);
+  input in1, in2, select;
+  output  out;
+  wire  not_select, a1, a2;
+  not g1(not_select, select);
+  and g2(a1, in1, not_select);
+  and g3(a2, in2, select);
+  or  g4(out, a1, a2);
+endmodule 
 
+module  Mux8Bit_2To1_generate(out, select, in1, in2);
+  input [7:0] in1, in2;
+  input select;
+  output  [7:0] out;
+  genvar  j;
+  generate  for(j = 0; j < 8; j = j + 1)  
+    begin:  mux_loop
+      Mux2To1 Mux(out[j], select, in1[j], in2[j]);
+    end
+  endgenerate
+endmodule
 
 module  Mux32Bit_2To1(out, select, in1, in2);
   input [31:0] in1, in2;

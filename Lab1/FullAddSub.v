@@ -52,7 +52,7 @@ module tb_addsub;
   reg Select;
   wire [3:0]Sum;
   wire Carry, Overflow;
-  _4bit_Adder_Sub_gate mod(Sum, Carry, Overflow, A, B, Select);
+  _4bit_Adder_Sub mod(Sum, Carry, Overflow, A, B, Select);
   initial
     begin
       $monitor($time, " A=%4b, B=%4b, Select=%b, Carry=%b, Sum=%4b, Overflow=%b.", A, B, Select, Carry, Sum, Overflow);

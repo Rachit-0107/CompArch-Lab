@@ -1,4 +1,4 @@
-// Diffrential level 2:1 mux
+// Data Flow level 2:1 mux
 
 module mux2to1(Out, A, B, select);
   input A, B, select;
